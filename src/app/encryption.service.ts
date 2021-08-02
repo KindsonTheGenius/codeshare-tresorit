@@ -44,12 +44,12 @@ export class EncryptionService {
       keySize: 256 / 32,
       iterations: 65536
     })
+    console.log(key)
     var decryptedMessage = CryptoJS.AES.decrypt(message, key, {
       iv: this.toWordArray(this.Key_IV),
      // padding: CryptoJS.pad.Pkcs7, //in case padding is needed
       mode: CryptoJS.mode.CFB
     })
-    console.table({message, decryptedMessage})
     return decryptedMessage.toString(CryptoJS.enc.Utf8);
   }
 }
