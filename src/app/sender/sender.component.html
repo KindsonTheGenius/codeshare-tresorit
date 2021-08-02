@@ -1,0 +1,10 @@
+<div class="container">
+    <form>
+        <div style="text-align: center;">
+            Enter a some code in the text field below to share...
+            <textarea class="form-control" rows="10" (input)="setValue($event.target.value)" type="text" #entry></textarea><br>
+            <button class="btn btn-outline-success" (click)="setValue(entry.value)">Send Code</button>
+            <button style="margin-left: 20px;" class="btn btn-outline-danger" (click)="clear()">Clear</button>
+        </div>
+    </form>
+</div>
