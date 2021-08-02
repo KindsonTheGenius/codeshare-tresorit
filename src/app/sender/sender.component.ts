@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { environment } from 'src/environments/environment';
 import { EncryptionService } from '../encryption.service';
 import { MessageService } from '../message.service';
 
@@ -11,9 +13,16 @@ export class SenderComponent implements OnInit {
 
   @ViewChild('entry') entry;
 
-  constructor(private messageService: MessageService, private encryptionService: EncryptionService) { }
+  messageLink: string;
+
+  constructor(
+    private messageService: MessageService, 
+    private encryptionService: EncryptionService,
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit(): void {
+    this.messageLink = this.encryptionService.encryptionKey;
   }
 
   setValue(value:string){
@@ -28,5 +37,13 @@ export class SenderComponent implements OnInit {
     localStorage.setItem("codeToSend", '');
     this.messageService.setCodeToSend('');
   }
+
+  openModal(contentModal) {
+    var psw = environment.PASSWORD;
+    var kiv = environment.Key_IV;
+    var slt = environment.SALT;
+    this.messageLink = psw + '/' + kiv + '/' + slt;
+    this.modalService.open(contentModal);
+   }
 
 }

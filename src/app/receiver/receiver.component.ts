@@ -33,6 +33,7 @@ export class ReceiverComponent implements OnInit {
 
   storageEventHandler = (event: StorageEvent) => {
 
+    console.log('here')
     const decryptedMessage = this.encryptionService.decryptMessage(event.newValue)
 
     this.receivedCode = decryptedMessage;
