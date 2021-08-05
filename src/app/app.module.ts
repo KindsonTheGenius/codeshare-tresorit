@@ -7,6 +7,7 @@ import { SenderComponent } from './sender/sender.component';
 import { ReceiverComponent } from './receiver/receiver.component';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { EncryptionService } from './encryption.service';
 
 @NgModule({
   declarations: [

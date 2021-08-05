@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EncryptionService } from '../encryption.service';
+import { environment } from 'src/environments/environment';
+import * as CryptoJS from 'crypto-js'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,18 @@ import { EncryptionService } from '../encryption.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+    ) { }
+
+  public encryptionKey: any
 
   ngOnInit(): void {
+  }
+
+  shareNow(){
+    
+    this.router.navigate(["/sender"])
   }
 
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'sender', component: SenderComponent},
-  {path: 'receiver', component: ReceiverComponent}
+  {path: 'receiver/:salt', component: ReceiverComponent}
 ];
 
 @NgModule({

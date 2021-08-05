@@ -3,8 +3,7 @@
         <div style="text-align: center;">
             Enter a some code in the text field below to share...
             <textarea class="form-control" rows="10" (input)="setValue($event.target.value)" type="text" #entry></textarea><br>
-            <a (click)="openModal(contentModal)" class="btn btn-outline-success">Open modal</a>
-          
+            <a (click)="openModal(contentModal)" class="btn btn-outline-success">Share Code</a>
               <button style="margin-left: 20px;" class="btn btn-outline-danger" (click)="clear()">Clear</button>
         </div>
     </form>
@@ -12,17 +11,17 @@
 
 <ng-template #contentModal let-c="close" let-d="dismiss">
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-primary-title">Title</h4>
+        <h4 class="modal-title" id="modal-primary-title">Copy Link below</h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
           <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body centered">
       <p>
-          Link to Message: {{messageLink}}
+           <a>{{messageLink}}</a>
       </p>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-btn-primary">Close</button>
+        <button class="btn btn-btn-primary close">Close</button>
     </div>
 </ng-template>
